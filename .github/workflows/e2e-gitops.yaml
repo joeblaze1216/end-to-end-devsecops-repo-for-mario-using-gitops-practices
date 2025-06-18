@@ -15,15 +15,22 @@ jobs:
  
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Shallow clones should be disabled for better analysis relevance
  
       - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@master
+        uses:  SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          # Additional arguments for the SonarScanner CLI
+          args:
+            # Unique keys of your project and organization. You can find them in SonarCloud > Information (bottom-left menu)
+            # mandatory
+            -Dsonar.projectKey=joeblaze1216_devsecops-dotnet-github-actions-end-to-end-assignment
+            -Dsonar.organization=joeblaze1216
       # If you wish to fail your job when the Quality Gate is red, uncomment the
       # following lines. This would typically be used to fail a deployment.
       # - name: SonarQube Quality Gate Check
