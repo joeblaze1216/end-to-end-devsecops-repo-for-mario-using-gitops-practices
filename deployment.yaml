@@ -15,8 +15,13 @@ spec:
       nodeSelector:
         kubernetes.io/arch: amd64  # Force compatible architecture
       containers:
+<<<<<<< HEAD
       - name: supermariogame-container
         image: puthurjohnny/supermarioproj:2
+=======
+      - image: puthurjohnny/supermarioproj:1
+        name: supermariogame-container
+>>>>>>> 6eff0a45ef2d3d95cd0175a7a4df37a7f90c4231
         ports:
         - containerPort: 8080
         imagePullPolicy: Always  # Ensure fresh pull
