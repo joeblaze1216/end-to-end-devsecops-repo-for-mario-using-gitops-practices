@@ -12,9 +12,7 @@ spec:
       labels:
         app: supermariogame
     spec:
-      nodeSelector:
-        kubernetes.io/arch: amd64  # Force compatible architecture
-      containers:
+     containers:
 
       - name: supermariogame-container
         image: puthurjohnny/supermarioproj:2
