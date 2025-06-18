@@ -15,7 +15,7 @@ spec:
      containers:
 
       - name: supermariogame-container
-        image: puthurjohnny/supermarioproj:2
+        image: puthurjohnny/supermarioproj:3
 
         ports:
         - containerPort: 8080
