@@ -13,7 +13,7 @@ spec:
         app: supermariogame
     spec:
       containers:
-      - image: puthurjohnny/supermarioproj:3
+      - image: puthurjohnny/supermarioproj:latest
         name: supermariogame-container
         ports:
         - containerPort: 8080
