@@ -20,7 +20,7 @@ spec:
         ports:
         - containerPort: 8080
         imagePullPolicy: Always  # Ensure fresh pull
-      restartPolicy: Always
+        restartPolicy: Always
 
 ---
 apiVersion: v1
