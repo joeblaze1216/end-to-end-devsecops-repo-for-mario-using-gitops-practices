@@ -70,11 +70,7 @@ jobs:
         run: |
           docker pull puthurjohnny/supermarioproj:${{ env.VERSION }}
           docker save -o ${{ github.workspace }}/supermariolatestdockerimage.tar docker.io/puthurjohnny/supermarioproj:${{ env.VERSION }}     
-         with:
-           context: .
-           push: true
-           tags: puthurjohnny/supermarioproj:${{ env.VERSION }}
-           platforms: linux/amd64
+         
       - name: Run Trivy vulnerability scanner in tarball mode
         uses: aquasecurity/trivy-action@master
         with:
