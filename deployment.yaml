@@ -12,12 +12,16 @@ spec:
       labels:
         app: supermariogame
     spec:
+      nodeSelector:
+        kubernetes.io/arch: amd64  # Force compatible architecture
       containers:
-      - image: puthurjohnny/supermarioproj:latest
-        name: supermariogame-container
+      - name: supermariogame-container
+        image: puthurjohnny/supermarioproj:2
         ports:
         - containerPort: 8080
- 
+        imagePullPolicy: Always  # Ensure fresh pull
+      restartPolicy: Always
+
 ---
 apiVersion: v1
 kind: Service
@@ -28,6 +32,6 @@ spec:
     app: supermariogame
   ports:
   - protocol: TCP
-    port: 8600  # <-- Change this line to your desired port
-    targetPort: 8080
+    port: 8600        # External port
+    targetPort: 8080  # Container port
   type: LoadBalancer
